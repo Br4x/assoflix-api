@@ -20,8 +20,31 @@ export const byGenre = async ({ genre }: any) => {
     }
 };
 export const categories = async () => {
-    const genres = ['Drama', 'Action', 'Fantasy', 'Horror', 'Romance', 'Crime', 'Thriller', 'Mystery',
-        'Science-Fiction', 'Comedy', 'Family', 'Music', 'Adventure', 'Espionage', 'Supernatural'];
+    const genres = [
+        'Communication',
+        'Administratif',
+        'Légal / Juridique',
+        'Gouvernance',
+        'Projets',
+        'Partenariats',
+        'Outils',
+        'Financement',
+        'Numérique',
+        'Témoignages',
+        'Histoire',
+        'Communauté',
+        'Formation',
+        'Tendances',
+        'Sport',
+        'Art et culture',
+        'Education & jeunesse',
+        'Humanitaire & solidaire',
+        'Environnement & biodiversité',
+        'Loisirs & arts',
+        'Santé',
+        'Défense des droits & social',
+        'Recherche & science'
+    ];
     try {
         const shows: any = await Promise.all(
             genres.map((genre) => ShowSchemaModel.find({ 'details.genres': { $in: [genre] } }).limit(5))
